@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>site-dezhou.com · 德州扑克游戏介绍页</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f5f9fc;
+      color: #1a2b3c;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Hero 区 */
+    .hero {
+      background: linear-gradient(135deg, #0b2a3a 0%, #1a4e63 50%, #28758a 100%);
+      color: #fff;
+      padding: 4rem 0 3.5rem;
+      border-bottom-left-radius: 2rem;
+      border-bottom-right-radius: 2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 8px 20px rgba(20, 80, 100, 0.12);
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 680px;
+      color: #d2eaf2;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(4px);
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      color: #bfe2ed;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      width: fit-content;
+    }
+
+    /* 网格卡片区（优势/说明） */
+    .grid-section {
+      margin-bottom: 2.8rem;
+    }
+
+    .grid-section h2 {
+      font-size: 1.8rem;
+      font-weight: 500;
+      margin-bottom: 1.6rem;
+      color: #10455b;
+      border-left: 5px solid #2a8b9e;
+      padding-left: 1rem;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.6rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 1.4rem;
+      padding: 1.8rem 1.5rem;
+      box-shadow: 0 4px 14px rgba(15, 60, 80, 0.04);
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid #e3eff4;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 24px rgba(20, 80, 100, 0.08);
+      border-color: #b3dae5;
+    }
+
+    .card-title {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #0b3a4a;
+      margin-bottom: 0.8rem;
+    }
+
+    .card-title span {
+      background: #d6edf2;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      color: #105e6e;
+    }
+
+    .card p {
+      color: #2f495a;
+      font-size: 0.97rem;
+    }
+
+    /* 说明区（场景/可信） */
+    .insight-block {
+      background: #e9f3f7;
+      border-radius: 2rem;
+      padding: 2.2rem 2rem;
+      margin: 2.8rem 0;
+      border: 1px solid #cde2ea;
+    }
+
+    .insight-block h3 {
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: #003d4d;
+      margin-bottom: 1rem;
+    }
+
+    .insight-block p {
+      margin-bottom: 1rem;
+      color: #1b4050;
+    }
+
+    .insight-block p:last-child {
+      margin-bottom: 0;
+    }
+
+    .insight-link {
+      background: #ffffff;
+      border-radius: 60px;
+      padding: 0.6rem 1.6rem;
+      display: inline-block;
+      margin-top: 0.6rem;
+      border: 1px solid #b5d6e2;
+      font-size: 0.95rem;
+    }
+
+    /* FAQ 摘要 */
+    .faq-mini {
+      background: #ffffff;
+      border-radius: 1.8rem;
+      padding: 2rem 2rem 1.6rem;
+      margin-bottom: 2.8rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    }
+
+    .faq-mini h2 {
+      font-size: 1.6rem;
+      font-weight: 500;
+      margin-bottom: 1.4rem;
+      color: #0a4557;
+    }
+
+    .faq-item {
+      padding: 0.9rem 0;
+      border-bottom: 1px solid #e2edf2;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-weight: 600;
+      color: #164352;
+      margin-bottom: 0.25rem;
+    }
+
+    .faq-a {
+      color: #3b5b6a;
+      font-size: 0.95rem;
+    }
+
+    /* 底部 */
+    .footer {
+      border-top: 1px solid #d4e3ea;
+      padding: 2rem 0 2.5rem;
+      text-align: center;
+      color: #446c7a;
+      font-size: 0.95rem;
+    }
+
+    .footer a {
+      color: #197186;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    .footer p {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer small {
+      color: #6b8e9b;
+    }
+
+    /* 响应式 */
+    @media (max-width: 640px) {
+      .hero {
+        padding: 3rem 0 2.5rem;
+        border-radius: 0 0 1.5rem 1.5rem;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1.05rem;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .insight-block {
+        padding: 1.6rem 1.2rem;
+      }
+
+      .faq-mini {
+        padding: 1.5rem 1.2rem;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .hero-content {
+        padding-right: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero 区 -->
+  <section class="hero">
+    <div class="container hero-content">
+      <span class="hero-tag">site-dezhou.com · 站点索引</span>
+      <h1>德州扑克游戏<br>信息与介绍</h1>
+      <p>一个围绕「德州扑克游戏」主题整理的内容站点，提供规则梳理、常见术语与玩法说明。面向对桌牌逻辑感兴趣的浏览者，保持客观、简洁、有参考价值。</p>
+    </div>
+  </section>
+
+  <main class="container">
+
+    <!-- 优势区 / 特点卡片 -->
+    <section class="grid-section">
+      <h2>站点特点</h2>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-title"><span>♠</span> 规则说明</div>
+          <p>从基础手牌排列到行动轮次，提供结构化的 <strong>德州扑克游戏</strong> 玩法解读，适合新手与进阶玩家对照参考。</p>
+        </div>
+        <div class="card">
+          <div class="card-title"><span>♦</span> 术语整理</div>
+          <p>翻牌前、翻牌圈、河牌、底池赔率、位置概念 —— 常用词汇与场景均有收录，便于快速查阅。</p>
+        </div>
+        <div class="card">
+          <div class="card-title"><span>♣</span> 场景策略</div>
+          <p>不同牌桌阶段、人数与筹码深度下的思路摘要，着重呈现常见情形而非绝对结论，保持中立。</p>
+        </div>
+        <div class="card">
+          <div class="card-title"><span>♥</span> 内容沉淀</div>
+          <p>站点内容经过筛选与整合，不夸大收益，不引导投机，仅作为 <strong>德州扑克游戏</strong> 的信息索引页面。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 说明区 / 内容切入角度：可信说明 -->
+    <div class="insight-block">
+      <h3>关于这个介绍页</h3>
+      <p>本站点 <strong>site-dezhou.com</strong> 定位为信息型入口页，不直接提供在线对局、充值或下载服务。页面中所涉及的玩法说明、术语解析均基于常见的牌局逻辑整理，不构成任何投资或赌博建议。</p>
+      <p>在海外许多地区，<strong>德州扑克游戏</strong> 被视为一项技巧性竞技活动。本介绍页希望为中文用户提供一个干净的参考起点，帮助理解基本概念与常见讨论。内容保持克制，不渲染输赢气氛。</p>
+      <p>如果你正在寻找一个关于 <strong>德州扑克游戏</strong> 的信息索引，可以参考本站整理的结构化卡片与 FAQ 摘要。所有内容仅供个人学习与桌面研究使用。</p>
+      <div class="insight-link">
+        → 站点主页：<a href="https://site-dezhou.com">德州扑克游戏</a>
+      </div>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <section class="faq-mini">
+      <h2>常见问题 · 摘要</h2>
+      <div class="faq-item">
+        <div class="faq-q">Q：这个网站提供在线对局吗？</div>
+        <div class="faq-a">不提供。site-dezhou.com 是一个介绍性质的页面，不包含任何游戏入口或客户端，仅作为信息索引。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Q：内容适合完全没接触过 <strong>德州扑克游戏</strong> 的人吗？</div>
+        <div class="faq-a">是的。卡片区和FAQ覆盖了基础规则和常用术语，可以作为初步了解的材料。更深入的策略分析建议配合专业书籍或视频学习。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Q：页面里提到的“策略场景”是否保证有效？</div>
+        <div class="faq-a">所有场景策略均为常见情形下的经验总结，实际对局受位置、牌桌动态、对手风格等影响，不应视为必胜法则。请理性参考。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Q：如何反馈内容建议？</div>
+        <div class="faq-a">目前站点为静态介绍页，暂无独立反馈渠道。你可以通过 <strong>德州扑克游戏</strong> 相关社区或邮件方式提出建议。</div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 底部链接 -->
+  <footer class="footer">
+    <div class="container">
+      <p>更多内容请访问 <a href="https://site-dezhou.com">德州扑克游戏</a> · 信息索引页</p>
+      <p class="small">本站点内容仅供学习参考，不构成任何形式的推荐或引导。请合理判断，理性参与。</p>
+      <small>site-dezhou.com · 简洁 · 专业 · 可信</small>
+    </div>
+  </footer>
+
+</body>
+</html>
